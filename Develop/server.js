@@ -70,14 +70,17 @@ app.delete("/api/notes/:id", function (req, res) {
     fs.readFile(__dirname + "/db/db.json", function (err, data) {
         if (err) throw err
         let notes = JSON.parse(data)
-        let note_filter = notes.filter((note) => {return note.id !== note_id})
-        
+        let note_filter = notes.filter((note) => { return note.id !== note_id })
+
         // writes new note data into db.json
         fs.writeFile(__dirname + "/db/db.json", JSON.stringify(note_filter), function (err, data) {
             if (err) throw err
+            console.log(note_filter)
+            res.json(note_filter)
         })
     })
 })
+
 app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+    console.log("Application is listening on PORT " + PORT);
 });
