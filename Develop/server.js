@@ -81,6 +81,12 @@ app.delete("/api/notes/:id", function (req, res) {
     })
 })
 
+// joins file to the index.html and gets all notes
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "public/index.html"))
+})
+
+// listens on PORT 3000
 app.listen(PORT, function () {
     console.log("Application is listening on PORT " + PORT);
 });
