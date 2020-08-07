@@ -78,17 +78,6 @@ app.delete("/api/notes/:id", function (req, res) {
         })
     })
 })
-// Using a RegEx Pattern to remove spaces from newCharacter
-// You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
-
-console.log(newCharacter);
-
-characters.push(newCharacter);
-
-res.json(newCharacter);
-});
-
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
