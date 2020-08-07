@@ -1,5 +1,8 @@
+// Dependencies
+// allows server to manipulate db.json
 let fs = require("fs");
 let myJson = require("./db/db.json")
+
 // empty object array to push in new note data
 let notes = [{}]
 
