@@ -1,6 +1,6 @@
 // Dependencies
 // allows server to manipulate db.json
-let fs = require("fs");
+let fs = require("fs")
 let myJson = require("./db/db.json")
 
 // empty object array to push in new note data
@@ -21,19 +21,19 @@ let app = express()
 let PORT = process.env.PORT || 3000
 
 // Sets up the Express application to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 // Links all the files to the server.js file
 app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/notes.html"))
-});
+})
 app.get("/assets/js/index.js", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/assets/js/index.js"))
-});
+})
 app.get("/assets/css/styles.css", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/assets/css/styles.css"))
-});
+})
 
 // API link
 // displays all notes
@@ -43,7 +43,7 @@ app.get("/api/notes", function (req, res) {
         let notes = JSON.parse(data)
         return res.json(notes)
     })
-});
+})
 
 // posts data to the notes in the REST API
 app.post("/api/notes", function (req, res) {
@@ -92,4 +92,4 @@ app.get("*", function (req, res) {
 // listens on PORT 3000
 app.listen(PORT, function () {
     console.log("Application is listening on PORT " + PORT);
-});
+})
