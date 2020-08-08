@@ -66,7 +66,7 @@ app.post("/api/notes", (req, res) => {
 })
 
 // gives each note a unique `id` when it's saved, and deletes notes with given `id` on command
-app.delete("/api/notes/:id", (req, res)  =>{
+app.delete("/api/notes/:id", (req, res)  => {
     // uses params to create individual note `id`
     let note_id = req.params.id
     // collects notes from the db
